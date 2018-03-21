@@ -14,6 +14,13 @@ public class HelloService {
     @Autowired
     RestTemplate restTemplate;
 
+
+    /**
+     * @HystrixCommand  断路器, 在服务异常时调用注解方法hiError
+     * @param name
+     * @return
+     */
+    @HystrixCommand(fallbackMethod = "hiError")
     public String hiService(String name){
         return restTemplate.getForObject("http://SERVICE-HI/hi?name="+name,String.class);
     }
