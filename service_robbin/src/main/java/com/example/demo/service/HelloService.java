@@ -17,4 +17,10 @@ public class HelloService {
     public String hiService(String name){
         return restTemplate.getForObject("http://SERVICE-HI/hi?name="+name,String.class);
     }
+
+
+    public String hiError(String name) {
+        return "hi,"+name+",sorry,error happened!";
+    }
+
 }
